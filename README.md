@@ -1,2 +1,2 @@
-# python-apprentissage
-Programme Python Débutant → Intermédiaire en 3 mois — 80% pratique, 10 projets
+# python-learning
+Python Beginner → Intermediate Program in 3 months— 80% hands-on, 10 projects
