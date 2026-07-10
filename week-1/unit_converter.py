@@ -18,6 +18,8 @@ def celsius_to_fahrenheit(celsius):
     """Convert Celsius to Fahrenheit."""
     return (celsius * 9/5) + 32
 
+    return gallons / 0.264172
+
 
 def fahrenheit_to_celsius(fahrenheit):
     """Convert Fahrenheit to Celsius."""
@@ -44,13 +46,31 @@ def eur_to_usd(eur):
     return eur / 0.92
 
 
+def kg_to_lbs(kg):
+    return kg * 2.20462
+
+
+def lbs_to_kg(lbs):
+    return lbs / 2.20462
+
+
+def liters_to_gallons(liters):
+    return liters * 0.264172
+
+
+def gallons_to_liters(gallons):
+    return gallons / 0.264172
+
+
 def display_menu():
     """Display the main menu options."""
     print("\n=== Unit Converter ===")
     print("1. Temperature (°C ↔ °F)")
     print("2. Distance (km ↔ miles)")
     print("3. Currency (USD ↔ EUR)")
-    print("4. Exit")
+    print("4. Weight (kg ↔ lbs)")
+    print("5. Volume (liters ↔ gallons)")
+    print("6. Exit")
     print("=====================")
 
 
@@ -114,13 +134,57 @@ def currency_converter():
         print("Invalid choice!")
 
 
+def weight_converter():
+    """Handle weight conversion."""
+    print("\n--- Weight Conversion ---")
+    print("1. Kilograms to Pounds")
+    print("2. Pounds to Kilograms")
+
+    choice = input("Choose (1 or 2): ")
+
+    if choice == "1":
+        kg = float(input("Enter weight in kg:"))
+        result = kg_to_lbs(kg)
+        print(f"{kg} kg = {result:.2f} lbs")
+
+    elif choice == "2":
+        lbs = float(input("Enter weight in lbs:"))
+        results = lbs_to_kg(lbs)
+        print(f"{lbs} lbs = {results:.2f} kg")
+    
+    else:
+        print("Invalid choice!")
+
+
+def volume_converter():
+    """Handle volume conversion."""
+    print("\n--- Volume Conversion ---")
+    print("1. Liters to Gallons")
+    print("2. Gallons to Liters")
+
+    choice = input("Choose (1 or 2): ")
+    
+    if choice == "1":
+        liters = float(input("Enter volume in liters:"))
+        result = liters_to_gallons(liters)
+        print(f"{liters} liters = {result:.2f} gallons")
+    
+    elif choice == "2":
+        gallons = float(input("Enter volume in gallons:"))
+        result = gallons_to_liters(gallons)
+        print(f"{gallons} gallons = {result:.2f} liters")
+    
+    else:
+        print("Invalid choice!")
+
+
 def main():
     """Main program loop."""
     print("Welcome to the Unit Converter!")
     
     while True:
         display_menu()
-        choice = input("Enter your choice (1-4): ")
+        choice = input("Enter your choice (1-6): ")
         
         if choice == "1":
             temperature_converter()
@@ -129,7 +193,11 @@ def main():
         elif choice == "3":
             currency_converter()
         elif choice == "4":
-            print("Goodbye!")
+            weight_converter()
+        elif choice == "5":
+            volume_converter()
+        elif choice == "6":
+            print("Goodbye!")      
             break
         else:
             print("Invalid choice. Please try again.")
